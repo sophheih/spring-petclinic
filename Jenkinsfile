@@ -1,13 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Initialize') {
+    stage('Start') {
       steps {
         echo 'Start the pipline'
       }
     }
 
-    stage('') {
+    stage('Initialize') {
       steps {
         sh 'mvn clean package'
       }
