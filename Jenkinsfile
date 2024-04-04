@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  tools {
-      maven "maven-3.9.6" // Use the name of your Maven installation
-  }
   stages {
     stage('Start') {
       steps {
@@ -13,14 +10,12 @@ pipeline {
     stage('Initialize') {
       steps {
         sh 'mvn clean package'
+        tool(name: 'maven-3.9.6', type: 'maven')
       }
     }
 
   }
-}
-
-post {
-    success {
-        archiveArtifacts artifacts: 'target/*.jar'
-    }
+  tools {
+    maven 'maven-3.9.6'
+  }
 }
