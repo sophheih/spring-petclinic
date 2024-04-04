@@ -19,6 +19,13 @@ pipeline {
       }
     }
 
+    stage('Jar file') {
+      steps {
+        sh 'archiveArtifacts artifacts: \'jar\', followSymlinks: false'
+        archiveArtifacts 'jar'
+      }
+    }
+
   }
   tools {
     maven 'maven-3.9.6'
