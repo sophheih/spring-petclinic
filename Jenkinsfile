@@ -21,7 +21,6 @@ pipeline {
 
     stage('Jar file') {
       steps {
-        sh 'archiveArtifacts artifacts: \'jar\', followSymlinks: false'
         archiveArtifacts 'jar'
       }
     }
