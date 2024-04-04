@@ -7,10 +7,15 @@ pipeline {
       }
     }
 
-    stage('Initialize') {
+    stage('Add Maven Tool') {
+      steps {
+        tool(name: 'maven-3.9.6', type: 'maven')
+      }
+    }
+
+    stage('Build') {
       steps {
         sh 'mvn clean package'
-        tool(name: 'maven-3.9.6', type: 'maven')
       }
     }
 
