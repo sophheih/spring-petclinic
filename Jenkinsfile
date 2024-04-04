@@ -25,6 +25,12 @@ pipeline {
       }
     }
 
+    stage('Run Jar ') {
+      steps {
+        sh 'java -jar target/spring-petclinic-*.jar'
+      }
+    }
+
   }
   tools {
     maven 'maven-3.9.6'
